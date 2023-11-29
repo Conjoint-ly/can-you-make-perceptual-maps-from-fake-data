@@ -1,11 +1,11 @@
 # Can you make perceptual maps from fake data? (A replication study)
 
-See ________
+See [the blog post](https://www.conjointly.com/blog/can-you-make-perceptual-maps-from-fake-data/) for more details.
 
 ## Common files
 
-* [openai.key](openai.key) - The OpenAI key used to access their API (not included in the repo).
-* [global.r](global.r) - Loads libraries and functions used in the other scripts.
+* [global.r](global.r) — Loads libraries and functions used in the other scripts.
+* _openai.key_ — The OpenAI key used to access their API (not included in the repo).
 
 ## Study on Super Rugby teams
 
