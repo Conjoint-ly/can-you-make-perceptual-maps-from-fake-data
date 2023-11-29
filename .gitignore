@@ -47,3 +47,14 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Idea folder
+.idea/*
+
+# All keys files in any folder
+key.*
+keys.*
+*.key
+
+# Temp Excel files
+~$*.xlsx
