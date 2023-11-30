@@ -108,32 +108,17 @@ compare_similarity_matrices <- function(...) {
   comparisons
 }
 
-compare_similarity_matrices <- function(...) {
-  inputs <- list(...)
-  comparisons <- matrix(NA, nrow = length(inputs), ncol = length(inputs))
-  for (i in seq_along(inputs)) {
-    for (j in seq_along(inputs)) {
-      if (i > j) {
-        Di <- as.dist(1 - inputs[[i]])
-        Dj <- as.dist(1 - inputs[[j]])
-        comparisons[i, j] <- mantel.randtest(Di, Dj)$obs
-      }
-    }
-  }
-  comparisons
-}
-
-compare_similarity_matrices_by_most_dissimilar_brand <- function(...) {
+compare_similarity_matrices_by_most_similar_brand <- function(...) {
   inputs <- list(...)
   for (i in seq_along(inputs)) {
-    diag(inputs[[i]]) <- Inf
+    diag( inputs[[i]]) <- -Inf
   }
   comparisons <- matrix(NA, nrow = length(inputs), ncol = length(inputs))
   for (i in seq_along(inputs)) {
     for (j in seq_along(inputs)) {
       if (i > j) {
-        Bi <- colnames(inputs[[i]])[apply(inputs[[i]], 1, which.min)]
-        Bj <- colnames(inputs[[j]])[apply(inputs[[j]], 1, which.min)]
+        Bi <- colnames( inputs[[i]])[apply( inputs[[i]], 1, which.max)]
+        Bj <- colnames( inputs[[j]])[apply( inputs[[j]], 1, which.max)]
         comparisons[i, j] <- mean(Bi == Bj)
       }
     }
@@ -141,8 +126,8 @@ compare_similarity_matrices_by_most_dissimilar_brand <- function(...) {
   comparisons
 }
 
-nameDims <- function(M, names) {
+nameDims<-function(M, names) {
   colnames(M) <- names
-  rownames(M) <- names
-  M[-1, -ncol(M)]
+    rownames(M) <- names
+  M[-1,-ncol(M)]
 }
