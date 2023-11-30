@@ -58,16 +58,6 @@ plot_map(expertMaps[, 1], expertMaps[, 4], expertMaps[, 5], "cafe-outputs/m-expe
 
 
 #### Compare distance matrices in fake and real ####
-compare_similarity_matrices(
-  combined_fake_similarities3,
-  combined_fake_similarities,
-  combined_fake_similarities4p,
-  -as.matrix(dist(expertMaps[,2:3])),
-  -as.matrix(dist(expertMaps[,4:5])),
-  combined_similarities) |>
-  nameDims(c("GPT-3.5-Turbo (F)", "GPT-4 (G)", "GPT-4-Turbo (I)", "First expert (L)","Second expert (M)", "Real (K)"))
-
-
 compare_similarity_matrices_by_most_similar_brand(
   combined_fake_similarities3,
   combined_fake_similarities,

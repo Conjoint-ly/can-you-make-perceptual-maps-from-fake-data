@@ -123,24 +123,6 @@ compare_similarity_matrices <- function(...) {
   comparisons
 }
 
-compare_similarity_matrices_by_most_similar_brand <- function(...) {
-  inputs <- list(...)
-  for (i in seq_along(inputs)) {
-    diag( inputs[[i]]) <- -Inf
-  }
-  comparisons <- matrix(NA, nrow = length(inputs), ncol = length(inputs))
-  for (i in seq_along(inputs)) {
-    for (j in seq_along(inputs)) {
-      if (i > j) {
-        Bi <- colnames( inputs[[i]])[apply( inputs[[i]], 1, which.max)]
-        Bj <- colnames( inputs[[j]])[apply( inputs[[j]], 1, which.max)]
-        comparisons[i, j] <- mean(Bi == Bj)
-      }
-    }
-  }
-  comparisons
-}
-
 compare_similarity_matrices_by_most_dissimilar_brand <- function(...) {
   inputs <- list(...)
   for (i in seq_along(inputs)) {

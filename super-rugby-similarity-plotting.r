@@ -107,16 +107,6 @@ plot_mds(combined_fake_fit_au4p, AUbrands, "super-rugby-outputs/au-e-mds.png", "
 
 
 #### Compare distance matrices in fake and real ####
-compare_similarity_matrices(
-  -as.matrix(dist(noisy_frame)),
-  combined_fake_similarities3,
-  combined_fake_similarities,
-  combined_fake_similarities4p,
-  combined_similarities) |>
-  nameDims(c("Country-based data (A)",
-             "GPT-3.5-Turbo (D)", "GPT-4 (C)", "GPT-4-Turbo (E)",
-             "Real (B)"))
-
 compare_similarity_matrices_by_most_similar_brand(
   -as.matrix(dist(noisy_frame)),
   combined_fake_similarities3,
